@@ -167,7 +167,6 @@ HTML;
 
         $status = (!empty($stopTask) && $stopTask == 1 ? 0 : 1);
 
-        mysqli_report(MYSQLI_REPORT_ERROR);
         if ($stmt = $db_connect->prepare("UPDATE `to_do_list` SET `status` = (?), `text` = (?) WHERE `to_do_list`.`id` = (?);")) {
             $stmt->bind_param('isi', $status, $text, $id);
             $stmt->execute();
